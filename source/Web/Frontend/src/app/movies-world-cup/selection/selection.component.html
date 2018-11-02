@@ -1,0 +1,31 @@
+<h2 class="uk-text-bold">Selection Phase</h2>
+
+<p>
+    Select 8 movies that you want to enter the competition and then press the "Generate My Championship" button to proceed.
+</p>
+
+<p>
+    <button class="uk-button uk-button-secondary uk-button-large" [disabled]="!isQuantitySelected()" (click)="generateChampionship()">Generate My Championship</button>
+</p>
+
+<p>
+    <span class="uk-text-bold">Selected: {{ quantitySelected() }} of {{ quantityToSelect }}</span>
+</p>
+
+<div class="uk-grid-small uk-child-width-1-1 uk-child-width-1-2@m uk-child-width-1-4@l uk-grid-match" uk-grid>
+    <div *ngFor="let movie of movies">
+        <div class="uk-card uk-card-default uk-card-body uk-border">
+            <div uk-grid>
+                <div class="uk-width-1-6 uk-inline">
+                    <div class="uk-position-center">
+                        <input class="uk-checkbox" type="checkbox" name="select" [(ngModel)]="movie.selected" [disabled]="isQuantitySelected()">
+                    </div>
+                </div>
+                <div class="uk-width-5-6 uk-padding-remove">
+                    <div class="uk-text-bold">{{ movie.title }}</div>
+                    <div>{{ movie.year }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

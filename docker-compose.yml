@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+    moviesworldcup:
+        build:
+            context: .
+            dockerfile: dockerfile
+            args:
+                ANGULAR_ENVIRONMENT: container
+                ASPNETCORE_ENVIRONMENT: Container
+        image: moviesworldcup
+        container_name: moviesworldcup
+        ports:
+            - 8080:80
